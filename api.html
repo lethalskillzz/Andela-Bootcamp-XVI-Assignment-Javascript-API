@@ -12,9 +12,8 @@
     <button id="action-button">Click me to load info!</button>
  <div id="info"></div>
 
-
 <script type="text/javascript">$('#action-button').click(function() {
-  //Jquery code for getting getting, prossessing and displaying page content
+  //Ajax call for getting getting, prossessing and displaying Json content
    $.ajax({
    	  //The destination url
       url: 'http://api.joind.in/v2.1/talks/10889',
@@ -26,6 +25,7 @@
       },
       dataType: 'jsonp',
       success: function(data) {
+      	 //extracting Json objects and assigning them to variables
          var $title = $('<h1>').text(data.talks[0].talk_title);
          var $description = $('<p>').text(data.talks[0].talk_description);
          $('#info')
